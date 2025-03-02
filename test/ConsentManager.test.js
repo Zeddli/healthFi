@@ -10,7 +10,7 @@ describe("ConsentManager", function () {
     [patient, provider, other] = await ethers.getSigners();
     const ConsentManagerFactory = await ethers.getContractFactory("ConsentManager");
     consentManager = await ConsentManagerFactory.deploy();
-    await consentManager.deployed();
+    // await consentManager.deployed();
   });
 
   it("should grant consent successfully", async function () {
