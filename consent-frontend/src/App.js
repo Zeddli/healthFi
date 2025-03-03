@@ -2,6 +2,7 @@ import React from 'react';
 import ConsentManagerInterface from './components/ConsentManagerInterface';
 import IdentityManager from './components/IdentityManager';
 import HealthRecordsInterface from './components/HealthRecordsInterface';
+import AuditTrail from './components/AuditTrail';
 
 function App() {
   // Replace these with your actual deployed contract addresses
@@ -17,6 +18,12 @@ function App() {
       <IdentityManager contractAddress={digitalIdentityAddress} />
       <hr/>
       <HealthRecordsInterface contractAddress={healthRecordsAddress} />
+      <hr/>
+      <AuditTrail 
+        consentManagerAddress={consentManagerAddress}
+        digitalIdentityAddress={digitalIdentityAddress}
+        healthRecordsAddress={healthRecordsAddress}
+      />
     </div>
   );
 }
