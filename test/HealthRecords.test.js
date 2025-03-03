@@ -10,7 +10,7 @@ describe("HealthRecords", function () {
     [patient, other] = await ethers.getSigners();
     HealthRecordsFactory = await ethers.getContractFactory("HealthRecords");
     healthRecords = await HealthRecordsFactory.deploy();
-    await healthRecords.deployTransaction.wait();
+    // await healthRecords.deployTransaction.wait();
   });
 
   it("should add a record successfully", async function () {
