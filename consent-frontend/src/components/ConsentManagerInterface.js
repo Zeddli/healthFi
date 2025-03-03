@@ -14,6 +14,12 @@ function ConsentManagerInterface({ contractAddress }) {
       if (window.ethereum) {
         // Using ethers v6's BrowserProvider
         const provider = new ethers.BrowserProvider(window.ethereum);
+        // Override ENS resolution
+        provider.resolveName = async (name) => {
+          if (ethers.isAddress(name)) return name;
+          return null;
+        };
+        
         const accounts = await provider.send('eth_requestAccounts', []);
         setAccount(accounts[0]);
 
