@@ -1,12 +1,13 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
+const Home = () => <div>Home Page</div>;
+
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<div>Home Page</div>} />
-        {/* Add your other routes here */}
+        <Route path="/" element={<Home />} />
       </Routes>
     </div>
   );
