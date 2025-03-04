@@ -1,14 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 
 const container = document.getElementById('root');
 if (!container) {
-  throw new Error("Root element not found. Please add a <div id='root'></div> in your public/index.html");
+  throw new Error("Root element not found. Ensure <div id='root'></div> is in public/index.html");
 }
+
 const root = ReactDOM.createRoot(container);
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
