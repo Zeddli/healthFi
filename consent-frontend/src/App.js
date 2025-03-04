@@ -4,6 +4,8 @@ import ConsentManagerInterface from './components/ConsentManagerInterface';
 import IdentityManager from './components/IdentityManager';
 import HealthRecordsInterface from './components/HealthRecordsInterface';
 import AuditTrail from './components/AuditTrail';
+import Layout from './Layout';
+import HomePage from './components/HomePage'; // Updated import path
 
 function App() {
   // Replace with actual deployed contract addresses
@@ -13,29 +15,9 @@ function App() {
 
   return (
     <Router>
-      <div style={{ padding: '20px' }}>
-        <h1>Decentralized Healthcare Platform</h1>
-        <nav>
-          <ul style={{ listStyle: 'none', padding: 0 }}>
-            <li style={{ display: 'inline', marginRight: '15px' }}>
-              <Link to="/">Home</Link>
-            </li>
-            <li style={{ display: 'inline', marginRight: '15px' }}>
-              <Link to="/consent">Consent Manager</Link>
-            </li>
-            <li style={{ display: 'inline', marginRight: '15px' }}>
-              <Link to="/identity">Digital Identity</Link>
-            </li>
-            <li style={{ display: 'inline', marginRight: '15px' }}>
-              <Link to="/health-records">Health Records</Link>
-            </li>
-            <li style={{ display: 'inline', marginRight: '15px' }}>
-              <Link to="/audit">Audit Trail</Link>
-            </li>
-          </ul>
-        </nav>
-        <hr />
+      <Layout>
         <Routes>
+          <Route path="/" element={<HomePage />} />
           <Route path="/" element={<div>Welcome to the Decentralized Healthcare Platform!</div>} />
           <Route path="/consent" element={<ConsentManagerInterface contractAddress={consentManagerAddress} />} />
           <Route path="/identity" element={<IdentityManager contractAddress={digitalIdentityAddress} />} />
@@ -49,7 +31,7 @@ function App() {
                       />}
           />
         </Routes>
-      </div>
+      </Layout>
     </Router>
   );
 }
